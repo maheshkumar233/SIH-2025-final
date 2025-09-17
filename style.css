@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0d47a1;
+}
+
+.header-logo {
+    max-height: 80px; /* Controls the size of the logo */
+    margin-bottom: 15px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #0d47a1;
+    padding: 0 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+#map {
+    height: 350px;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+}
+
+.supply-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.supply-section h4 {
+    margin-top: 0;
+    color: #333;
+}
+
+.item-request {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.item-request input[type="checkbox"] {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.item-request label {
+    flex-grow: 1;
+    margin: 0;
+    font-weight: normal;
+}
+
+.item-request input[type="number"] {
+    width: 80px;
+    margin: 0;
+}
+
+button[type="submit"] {
+    background-color: #1565c0;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0d47a1;
+}
+
+#locate-me-btn {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    background-color: #e0e0e0;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#locate-me-btn:hover {
+    background-color: #d1d1d1;
+}
+
+#locate-me-btn:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+input[readonly] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+#permission-denied-message {
+    background-color: #fff3cd; /* Light yellow */
+    color: #664d03; /* Dark yellow text */
+    border: 1px solid #ffecb5;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 10px;
+    color: #6c757d;
+}
+
+/* --- RESPONSIVE DESIGN FOR MOBILE & TABLETS --- */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* Reduce padding on small screens */
+    }
+
+    .container {
+        padding: 15px; /* Reduce padding inside the form container */
+    }
+
+    header h1 {
+        font-size: 1.5em; /* Make header smaller */
+    }
+}
