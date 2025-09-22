@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #1565c0;
+    --primary-dark: #0d47a1;
+    --secondary-color: #e0e0e0;
+    --secondary-dark: #bdbdbd;
+    --background-color: #f0f2f5;
+    --card-background: #ffffff;
+    --text-color: #333;
+    --border-color: #ddd;
+}
+
+body { font-family: 'Roboto', sans-serif; background-color: var(--background-color); color: var(--text-color); line-height: 1.6; margin: 0; padding: 20px; }
+header { text-align: center; margin-bottom: 20px; color: var(--primary-dark); }
+.header-logo { max-height: 80px; margin-bottom: 10px; }
+.container { max-width: 700px; margin: 0 auto; background: var(--card-background); padding: 30px; border-radius: 10px; box-shadow: 0 5px 25px rgba(0,0,0,0.1); border: 1px solid var(--border-color); }
+form { display: flex; flex-direction: column; }
+fieldset { border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+legend { font-size: 1.2em; font-weight: 700; color: var(--primary-dark); padding: 0 10px; }
+label { display: block; margin-bottom: 8px; font-weight: 700; }
+input[type="text"], input[type="tel"], textarea, input[type="number"]#casualties { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+input:focus, textarea:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 5px rgba(21, 101, 192, 0.5); }
+#map { height: 350px; width: 100%; border-radius: 5px; margin-bottom: 15px; border: 1px solid #ccc; }
+.supply-section { margin-bottom: 20px; padding: 15px; background-color: #f9f9f9; border-radius: 5px; border: 1px solid #eee; }
+.item-request { display: flex; align-items: center; margin-bottom: 10px; }
+.item-request input[type="checkbox"] { width: 20px; height: 20px; margin-right: 10px; flex-shrink: 0; }
+.item-request label { flex-grow: 1; margin: 0; }
+.item-request input[type="number"] { width: 80px; padding: 12px; margin: 0 0 0 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; flex-shrink: 0; }
+.btn { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 8px; font-size: 1.1em; font-weight: 700; color: white; cursor: pointer; transition: transform 0.1s ease, box-shadow 0.1s ease; border: none; }
+.btn-primary { background-color: var(--primary-color); box-shadow: 0 4px 0 var(--primary-dark); }
+.btn-secondary { background-color: var(--secondary-color); color: #333; box-shadow: 0 4px 0 var(--secondary-dark); }
+.btn:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--primary-dark); }
+.btn-secondary:active { box-shadow: 0 2px 0 var(--secondary-dark); }
+footer { text-align: center; margin-top: 30px; color: #666; }
+.form-status { max-width: 700px; margin: 20px auto; padding: 30px; border-radius: 10px; text-align: center; font-size: 1.2em; display: none; }
+.form-status.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; display: block; }
+.form-status.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; display: block; }
+.form-status .btn { margin-top: 20px; width: auto; padding: 10px 25px; }
+#offline-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000; display: none; justify-content: center; align-items: center; color: white; text-align: center; }
+.offline-content { animation: fadeIn 0.5s ease; }
+.drone-svg { width: 150px; height: 150px; animation: droneFly 3s ease-in-out infinite; }
+.rotor { animation: spin 0.1s linear infinite; transform-origin: center; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes droneFly { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-20px) rotate(2deg); } }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.top-right-btn { position: fixed; top: 20px; right: 20px; width: auto; padding: 10px 20px; z-index: 998; }
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); }
+.modal-content { background-color: #fefefe; margin: 15% auto; padding: 30px; border-radius: 10px; width: 80%; max-width: 400px; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.3); animation: fadeIn 0.3s; }
+.modal-content h2 { text-align: center; margin-top: 0; color: var(--primary-dark); }
+.modal-content input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+.close-btn { color: #aaa; position: absolute; top: 10px; right: 15px; font-size: 28px; font-weight: bold; cursor: pointer; }
+.error-message { color: red; font-size: 0.9em; text-align: center; display: none; margin-top: 10px; }
+.admin-body { background-color: #e9eef3; }
+.admin-header { background-color: var(--primary-dark); color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+.admin-header h1 { margin: 0; font-size: 1.5em; }
+#menu-icon { font-size: 2em; cursor: pointer; }
+#sidebar { height: 100%; width: 250px; position: fixed; z-index: 999; top: 0; left: 0; background-color: #2c3e50; overflow-x: hidden; transition: 0.3s; padding-top: 60px; }
+#sidebar a { padding: 15px 20px; text-decoration: none; font-size: 1.2em; color: #bdc3c7; display: block; transition: 0.3s; }
+#sidebar a:hover, #sidebar a.active { color: white; background-color: #34495e; }
+#admin-main { transition: margin-left .3s; padding: 20px; margin-left: 250px; }
+#loader { font-size: 1.5em; text-align: center; margin-top: 50px; }
+.order-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+.order-card { background: var(--card-background); border-left: 5px solid var(--primary-color); border-radius: 8px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.order-card h4 { margin-top: 0; }
+.order-card p { margin: 5px 0; font-size: 0.9em; color: #555; }
+.order-card strong { color: #333; }
+.status-badge { padding: 4px 10px; border-radius: 15px; color: white; font-size: 0.8em; font-weight: bold; display: inline-block; margin-top: 10px; }
+.status-pending { background-color: #f39c12; }
+.status-delivered { background-color: #2ecc71; }
+.actions { margin-top: 15px; }
+.actions button { font-size: 0.8em; padding: 6px 12px; margin-right: 5px; border-radius: 5px; }
+@media (max-width: 768px) { body { padding: 10px; } .container { padding: 20px; } #sidebar { width: 0; } #admin-main { margin-left: 0; } }
+@media (max-width: 480px) { header h1 { font-size: 1.5em; } .container { padding: 15px; } fieldset { padding: 15px; } .btn { padding: 12px; font-size: 1em; } }
+/* --- ADD THIS TO THE END OF YOUR style.css FILE --- */
+
+/* New Status Badge Colors for History View */
+.status-received {
+    background-color: #3498db; /* Blue */
+}
+
+.status-approved {
+    background-color: #27ae60; /* Green */
+}
+
+.status-rejected {
+    background-color: #e74c3c; /* Red */
+}
+
+/* Style for the new map links */
+.location-link {
+    text-decoration: underline;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.location-link:hover {
+    color: var(--primary-dark);
+}

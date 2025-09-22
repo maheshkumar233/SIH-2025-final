@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroAid - Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-body">
+
+    <header class="admin-header">
+        <h1>AeroAid Dashboard</h1>
+        <div id="menu-icon">&#9776;</div>
+    </header>
+
+    <nav id="sidebar">
+        <a href="#" class="nav-link active" data-view="received">New Orders</a>
+        <a href="#" class="nav-link" data-view="approved">Approved Orders</a>
+        <a href="#" class="nav-link" data-view="rejected">Rejected Orders</a>
+        <!-- NEW: Order History Link -->
+        <a href="#" class="nav-link" data-view="history">Order History</a>
+        <a href="/" id="logout-btn">Logout</a>
+    </nav>
+
+    <main id="admin-main">
+        <div id="loader">Loading Orders...</div>
+        <div id="order-container"></div>
+    </main>
+    
+    <script src="admin.js"></script>
+</body>
+</html>

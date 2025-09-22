@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroAid - Drone Emergency Response</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <button id="login-btn" class="btn btn-primary top-right-btn">Admin Login</button>
+
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Admin Login</h2>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <p id="login-error" class="error-message"></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="offline-overlay">
+        <div class="offline-content">
+            <svg class="drone-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <g class="drone-body"><rect x="35" y="45" width="30" height="10" rx="2" fill="#333"/><circle cx="50" cy="40" r="5" fill="#5a9bd6"/><line x1="20" y1="50" x2="80" y2="50" stroke="#444" stroke-width="2"/><line x1="50" y1="20" x2="50" y2="80" stroke="#444" stroke-width="2"/></g>
+                <g class="rotor rotor-tl"><rect x="15" y="15" width="10" height="2" fill="#666"/></g>
+                <g class="rotor rotor-tr"><rect x="75" y="15" width="10" height="2" fill="#666"/></g>
+                <g class="rotor rotor-bl"><rect x="15" y="83" width="10" height="2" fill="#666"/></g>
+                <g class="rotor rotor-br"><rect x="75" y="83" width="10" height="2" fill="#666"/></g>
+            </svg>
+            <h2>Connection Lost</h2>
+            <p>AeroAid is trying to reconnect. Please check your network.</p>
+        </div>
+    </div>
+
+    <header>
+        <img src="https://res.cloudinary.com/dfol7xlwr/image/upload/v1697369724/pngegg_mmfwig.png" alt="AeroAid Logo" class="header-logo">
+        <h1>AeroAid: Drone Emergency Response</h1>
+        <p>Request critical supplies for drone delivery to your precise location.</p>
+    </header>
+
+    <div id="main-content">
+        <main class="container" id="form-container">
+            <form id="relief-form">
+                
+                <fieldset>
+                    <legend>1. Contact Information</legend>
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </fieldset>
+                <fieldset>
+                    <legend>2. Location & Situation</legend>
+                    <label for="casualties">Number of People Requiring Aid:</label>
+                    <input type="number" id="casualties" name="number_of_people" min="1" required>
+                    <button type="button" id="locate-me-btn" class="btn btn-secondary">📍 Find My Current Location</button>
+                    <div id="permission-denied-message" style="display: none;">
+                        Location access was denied. To enable it, click the 🔒 icon in your address bar and set Location to "Allow".
+                    </div>
+                    <label>Your Precise Location (Drag the pin to adjust):</label>
+                    <div id="map"></div>
+                    <label for="latitude">Latitude:</label>
+                    <input type="text" id="latitude" name="latitude" readonly placeholder="Latitude will appear here...">
+                    <label for="longitude">Longitude:</label>
+                    <input type="text" id="longitude" name="longitude" readonly placeholder="Longitude will appear here...">
+                </fieldset>
+                <fieldset>
+                    <legend>3. Required Supplies</legend>
+                    <div class="supply-section">
+                        <h4>⚕️ Medical Supplies</h4>
+                        <div class="item-request" data-item-name="First-Aid Kit"><input type="checkbox" id="medkit" name="request_medkit"><label for="medkit">First-Aid Kit</label><input type="number" name="medkit_quantity" placeholder="Qty" min="1"></div>
+                        <label for="medical_needs">Specific Medical Needs:</label><textarea id="medical_needs" name="specific_medical_needs" rows="3" placeholder="e.g., insulin, bandages..."></textarea>
+                    </div>
+                    <div class="supply-section">
+                        <h4>🍲 Food & Water</h4>
+                         <div class="item-request" data-item-name="Drinking Water"><input type="checkbox" id="water" name="request_water"><label for="water">Drinking Water (bottles)</label><input type="number" name="water_quantity" placeholder="Qty" min="1"></div>
+                        <div class="item-request" data-item-name="High-Energy Biscuits"><input type="checkbox" id="biscuits" name="request_biscuits"><label for="biscuits">High-Energy Biscuits (packs)</label><input type="number" name="biscuits_quantity" placeholder="Qty" min="1"></div>
+                    </div>
+                    <div class="supply-section">
+                        <h4>📡 Communication Device</h4>
+                        <div class="item-request" data-item-name="Satellite Phone / Radio"><input type="checkbox" id="comm_device" name="request_comm_device"><label for="comm_device">Satellite Phone / Radio</label><input type="number" name="comm_device_quantity" value="1" min="1"></div>
+                    </div>
+                </fieldset>
+
+                <button type="submit" class="btn btn-primary">Request Drone Delivery</button>
+            </form>
+        </main>
+    </div>
+
+    <div id="form-status" class="form-status"></div>
+
+    <footer>
+        <p>Designed & Built by Team One Piece</p>
+    </footer>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=PASTE_YOUR_GOOGLE_MAPS_API_KEY_HERE&callback=initMap" async defer></script>
+    <script src="script.js"></script>
+</body>
+</html>
